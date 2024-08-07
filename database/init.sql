@@ -1,0 +1,2 @@
+GRANT ALL PRIVILEGES ON buzzveldb.* TO 'buzzvelroot'@'%' WITH GRANT OPTION;
+FLUSH PRIVILEGES;
