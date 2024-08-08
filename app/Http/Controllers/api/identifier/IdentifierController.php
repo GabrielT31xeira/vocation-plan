@@ -7,7 +7,6 @@ use App\Http\Requests\identifier\LoginRequest;
 use App\Http\Requests\identifier\RegisterRequest;
 use App\services\identifier\IdentifierService;
 use Illuminate\Http\JsonResponse;
-use Illuminate\Http\Request;
 
 class IdentifierController extends Controller
 {
@@ -15,10 +14,10 @@ class IdentifierController extends Controller
     {
     }
 
-    public function login(LoginRequest $request): JsonResponse
+    public function login(LoginRequest $request)
     {
         $response = $this->identifierService->login($request);
-        return response()->json($response);
+        return $response;
     }
 
     public function register(RegisterRequest $request): JsonResponse

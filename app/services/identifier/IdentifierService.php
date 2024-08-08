@@ -17,12 +17,17 @@ class IdentifierService
     public function login($data): JsonResponse
     {
         try {
-            if (Auth::attempt($data)) {
+            if (Auth::attempt($data->all())) {
                 $user = Auth::user();
-                $token = $user->createToken('JedisAPI')->accessToken;
-                return response()->json(['token' => $token]);
+                $token = $user->createToken('buzzvelAPI')->accessToken;
+                return response()->json([
+                    'message' => 'User logged in successfully',
+                    'token' => $token
+                ]);
             } else {
-                return response()->json(['error' => 'Error in credentials'], 401);
+                return response()->json([
+                    'error' => 'Error in credentials'
+                ], 401);
             }
         } catch (\Exception $exception) {
             return response()->json([

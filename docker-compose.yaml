@@ -4,7 +4,7 @@ services:
   nginx:
     build:
       context: .
-      dockerfile: ../../GitHub/vacation-plan/nginx/Docker/Dockerfile
+      dockerfile: ./nginx/Docker/Dockerfile
       args:
         - UID=${UID:-1000}
         - GID=${GID:-1000}
@@ -22,7 +22,7 @@ services:
   app:
     build:
       context: .
-      dockerfile: ../../GitHub/vacation-plan/PHP/Dockerfile
+      dockerfile: ./PHP/Dockerfile
       args:
         - UID=${UID:-1000}
         - GID=${GID:-1000}
@@ -35,7 +35,7 @@ services:
       - "DB_DATABASE=buzzveldb"
       - "DB_USERNAME=buzzvelroot"
       - "DB_PASSWORD=secret!132"
-    command: bash -c "composer install && cp .env.example .env && php artisan key:generate && php artisan migrate && php artisan passport:keys && php-fpm"
+    command: bash -c "composer install && cp .env.example .env && php artisan key:generate && php-fpm"
     depends_on:
       - db
     networks:
