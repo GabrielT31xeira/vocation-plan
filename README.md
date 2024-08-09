@@ -34,6 +34,15 @@ Please note that except for `login` and `register`, all other routes require aut
     "email": "example3@email.com",
     "password": "examplepassword"
     }
+  ````
+  
+    Response: 
+    ````
+  {
+    "message": "User logged in successfully",
+    "token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiI5Y2JhNTk3NS1jMWIwLTQ2OWUtOTcyMi03NDRkYmY5ZDJhY2QiLCJqdGkiOiJhYmRlYWNjMzI5MmU0OWFmNzgzODQzZjVkYWRjMDhhNjJlODE2Mzk2ZDY2MDQwMmVhOGU1YTBiNDFlZWUxMjBjNzU2ZTNhNzQ1ZTQxYmQxOSIsImlhdCI6MTcyMzI0MTgxNi43MzYxNDEsIm5iZiI6MTcyMzI0MTgxNi43MzYxNDMsImV4cCI6MTczOTEzOTQxNi43MTE2NDYsInN1YiI6IjEiLCJzY29wZXMiOltdfQ.llg7h7mFJFCkCBsNo0-YytuTOjLCOvAsF6QEou6AkOEVR9dgQLSUISZgXz52RtJR7HRdG4pO7ytsXwcd6_z_7MBmqwpeqZqe7uFp5_OIf6MzY92c6uRz3PxDei99b0gHEX3-qk12YNjcaAo6eXE4TcyRJEgXFvbjybFMUx2d1P1RPHhjv2-xdgS7sfevCfrYoQy2xop-VJ13JgkV1h-wf120ggfF2Wu_EBYfiag96twLynh3TbBMiiX3DUXIVJvQfuNimOM3V8P7xUeAfNoC8cG1ffn0Na3fBZPHZZax10lFy_TFQ2GrRLKbmXGqXt7JS1LgT57hjH8I_2-kcaimnIeknHHZs0qEgNlv04nvkDL7NgdMVWCJ7F-d7YWC78JlqESVItSI2t8iWaXpK1s6sNtBh2jR4Ro7yiYKUx9-VUcsHevcmdHWzY8aJmaZPNVL7I6LMK7SyPoe905RdCxg-mC1CArYH6KS1BZwNFw57-UhGxcLKoTHOIfIoui-awA3r7C02nt2JhQm7DeEKrVdECtBdlQGxKBmVIsJuzzDf9BP7Y-IP0bu3yZLgdyZ3L8nvYx0v43JxH76A87SpgxQaAggYrjM8vqLRj1ezMf_K11C22BA1j9R3BgabvC63Fo8ecEhQ1IgyWraiYrnr-L1a3pRpNuKgsNX3Xzobwqa0NI"
+}
+
 
 - **Register**: `POST /register`
   This route is for creating new user accounts.
@@ -58,41 +67,60 @@ Please note that except for `login` and `register`, all other routes require aut
         "created_at": "2024-08-09T21:35:33.000000Z",
         "id": 2
     }
-}
-    ````
+  }
+  ````
+    
     
 - **Logout**: `POST /logout`
   Use this endpoint to invalidate current user authentication.
+    
     Response:
-- **Profile**: `GET /profile`
-  This route will return the profile data for the currently authenticated user.
+    ````
+    "message": "User logout successfully."
+    ````
+  - **Profile**: `GET /profile`
+    This route will return the profile data for the currently authenticated user.
 
-  - **Holidays Plan CRUD Operations**:
+      Response:
+      
+  ````
+      {
+      "user": {
+          "id": 1,
+          "name": "example 1",
+          "email": "example1@email.com",
+          "email_verified_at": null,
+          "created_at": "2024-08-09T22:16:51.000000Z",
+          "updated_at": "2024-08-09T22:16:51.000000Z"
+            }
+      }
+  ````
+    - **Holidays Plan CRUD Operations**:
 
-      - `GET /holiday` get all holidays
-      - `GET /holiday/{id}` get one
-      - `POST /holiday` to create a new holiday
+        - `GET /holiday` get all holidays
+        - `GET /holiday/{id}` get one
+        - `POST /holiday` to create a new holiday
           
-        Request: 
-          ````
-        {
-        "title": "Example 1",
-        "description": "Description 1",
-        "date": "2024-12-31",
-        "location": "locate 1"
-        }
+          Request: 
+            ````
+          {
+          "title": "Example 1",
+          "description": "Description 1",
+          "date": "2024-12-31",
+          "location": "locate 1"
+          }
 
-      - `PUT /holiday/{id}` to update a holiday
-        Request:
-          ````
-        {
-        "title": "Example update",
-        "description": "Description update",
-        "date": "2024-12-31",
-        "location": "locate update"
-        }
-      - `DELETE /holiday/{id}` to delete a holiday
-        Please replace `{id}` with the actual holiday ID.
+        - `PUT /holiday/{id}` to update a holiday
+          Request:
+            ````
+          {
+          "title": "Example update",
+          "description": "Description update",
+          "date": "2024-12-31",
+          "location": "locate update"
+          }
+        - `DELETE /holiday/{id}` to delete a holiday
+          Please replace `{id}` with the actual holiday ID.
 
 - **Holiday PDF generator**: `GET /holiday/{id}/pdf`
   This endpoint will generate a PDF of the Holiday information.
