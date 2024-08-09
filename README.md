@@ -22,6 +22,9 @@ Gabriel Teixeira de Carvalho
 
 # About the application 
 
+Run ``docker compose up`` and into laravel container called ``app`` run ``php artisan migrate`` and ``php artisan passport:client --personal`` 
+Postman export into ``/postman/Vacation Plan.postman_collection.json``
+
 ## API Endpoints Tutorial
 Please note that except for `login` and `register`, all other routes require authorization. So make sure to include the token in the `Authorization` header of the request.
 
