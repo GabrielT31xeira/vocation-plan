@@ -30,8 +30,15 @@ class HolidayService
     public function getOne($id): JsonResponse
     {
         try {
+            $holiday = $this->model::where('id', $id)->with('creator', 'updater', 'participants')->first();
+
+            if ($holiday == null) {
+                return response()->json([
+                    'message' => 'Holiday plan not found',
+                ], 404);
+            }
             return response()->json([
-                'data' => $this->model::with('creator', 'updater', 'participants')->find($id)
+                'data' => $holiday
             ]);
         } catch (\Exception $exception) {
             return response()->json([
