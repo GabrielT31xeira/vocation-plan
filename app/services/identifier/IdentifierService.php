@@ -31,7 +31,7 @@ class IdentifierService
             }
         } catch (\Exception $exception) {
             return response()->json([
-                'message' => 'Login failed',
+                'message' => 'An error has occurred',
                 'info' => $exception->getMessage(),
             ],500);
         }
@@ -55,7 +55,7 @@ class IdentifierService
         } catch (\Exception $exception) {
             DB::rollBack();
             return response()->json([
-                'message' => 'Login failed',
+                'message' => 'An error has occurred',
                 'info' => $exception->getMessage(),
             ],500);
         }
