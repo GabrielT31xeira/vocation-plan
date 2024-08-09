@@ -9,8 +9,10 @@ use Illuminate\Support\Facades\DB;
 
 class HolidayService
 {
-    public function __construct(protected Holiday $model)
+    protected $model;
+    public function __construct(Holiday $model)
     {
+        $this->model = $model;
     }
 
     public function getAll(): JsonResponse
@@ -89,7 +91,7 @@ class HolidayService
             }
 
             $user = Auth::guard('api')->user();
-            $data = $holiday->where('id', $id)->update([
+            $holiday->where('id', $id)->update([
                 'title' => $data->title,
                 'description' => $data->description,
                 'date' => $data->date,
