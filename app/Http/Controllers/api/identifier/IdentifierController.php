@@ -23,18 +23,18 @@ class IdentifierController extends Controller
     public function register(RegisterRequest $request)
     {
         $response = $this->identifierService->register($request);
-        return response()->json($response);
+        return $response;
     }
 
     public function logout()
     {
         $response = $this->identifierService->logout();
-        return response()->json($response);
+        return $response;
     }
 
     public function profile()
     {
         $response = $this->identifierService->profile();
-        return response()->json($response);
+        return $response;
     }
 }

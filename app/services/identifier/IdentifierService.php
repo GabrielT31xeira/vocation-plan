@@ -61,7 +61,7 @@ class IdentifierService
         }
     }
 
-    public function logout()
+    public function logout(): JsonResponse
     {
         try {
             if (Auth::guard('api')->check()){
@@ -86,7 +86,7 @@ class IdentifierService
         }
     }
 
-    public function profile() {
+    public function profile(): JsonResponse {
         try {
             $user = Auth::guard('api')->user();
             return response()->json([
