@@ -1,66 +1,122 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
+# Hi
 
-<p align="center">
-<a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+My name is Gabriel Teixeira de Carvalho, a mid-level software developer.
 
-## About Laravel
+## About Me
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+I have a passion for software development and experience in various technologies and platforms. My primary focus is on producing clean, efficient code with special attention to software maintainability and scalability.
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+## Work Experience
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+I have experience in working on software development projects of various sizes, from small personal apps to large-scale enterprise solutions. I have created a number of successful solutions for the everyday challenges faced by organizations.
 
-## Learning Laravel
+## Thanks to the Company
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+I am grateful for the opportunity to apply for this position in your company. I am excited about the possibility of contributing to your team and the continued success of your company.
 
-You may also try the [Laravel Bootcamp](https://bootcamp.laravel.com), where you will be guided through building a modern Laravel application from scratch.
+![CR7 gif](https://media.tenor.com/277tHOZusxEAAAAC/siuuuuuu-ballon-dor.gif)
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains thousands of video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+Thank you for the consideration!
 
-## Laravel Sponsors
+Gabriel Teixeira de Carvalho
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the [Laravel Partners program](https://partners.laravel.com).
+# About the application 
 
-### Premium Partners
+## API Endpoints Tutorial
+Please note that except for `login` and `register`, all other routes require authorization. So make sure to include the token in the `Authorization` header of the request.
 
-- **[Vehikl](https://vehikl.com/)**
-- **[Tighten Co.](https://tighten.co)**
-- **[WebReinvent](https://webreinvent.com/)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel/)**
-- **[Cyber-Duck](https://cyber-duck.co.uk)**
-- **[DevSquad](https://devsquad.com/hire-laravel-developers)**
-- **[Jump24](https://jump24.co.uk)**
-- **[Redberry](https://redberry.international/laravel/)**
-- **[Active Logic](https://activelogic.com)**
-- **[byte5](https://byte5.de)**
-- **[OP.GG](https://op.gg)**
+- **Login**: `POST /login`
+  Use this route to authenticate a user.
+    
+    Request:
+    ````
+  {
+    "email": "example3@email.com",
+    "password": "examplepassword"
+    }
 
-## Contributing
+- **Register**: `POST /register`
+  This route is for creating new user accounts.
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+  Request:
+    ````
+  {
+    "name": "example 3",
+    "email": "example3@email.com",
+    "password": "examplepassword"
+    }
+    ````
+  Response: 
 
-## Code of Conduct
+    ````
+  {
+    "message": "User created successfully",
+    "user": {
+        "name": "example 3",
+        "email": "example32@email.com",
+        "updated_at": "2024-08-09T21:35:33.000000Z",
+        "created_at": "2024-08-09T21:35:33.000000Z",
+        "id": 2
+    }
+}
+    ````
+    
+- **Logout**: `POST /logout`
+  Use this endpoint to invalidate current user authentication.
+    Response:
+- **Profile**: `GET /profile`
+  This route will return the profile data for the currently authenticated user.
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
+  - **Holidays Plan CRUD Operations**:
 
-## Security Vulnerabilities
+      - `GET /holiday` get all holidays
+      - `GET /holiday/{id}` get one
+      - `POST /holiday` to create a new holiday
+          
+        Request: 
+          ````
+        {
+        "title": "Example 1",
+        "description": "Description 1",
+        "date": "2024-12-31",
+        "location": "locate 1"
+        }
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
+      - `PUT /holiday/{id}` to update a holiday
+        Request:
+          ````
+        {
+        "title": "Example update",
+        "description": "Description update",
+        "date": "2024-12-31",
+        "location": "locate update"
+        }
+      - `DELETE /holiday/{id}` to delete a holiday
+        Please replace `{id}` with the actual holiday ID.
 
-## License
+- **Holiday PDF generator**: `GET /holiday/{id}/pdf`
+  This endpoint will generate a PDF of the Holiday information.
 
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+  - **Participant Related Operations**:
+
+      - `PATCH /holiday/{id}/participants/related` to relate participants to a holiday
+        
+        Request: 
+         ````{
+        {
+            "ids": [
+                "2",
+                "3"
+            ]
+        }
+      - `PATCH /holiday/{id}/participants/unrelated` to unrelate participants from a holiday
+        Please replace `{id}` with the actual holiday ID.
+
+        Request:
+         ````{
+        {
+            "ids": [
+                "2",
+                "3"
+            ]
+        }
